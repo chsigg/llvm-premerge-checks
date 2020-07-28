@@ -28,8 +28,9 @@ NAME=$1
 gcloud beta compute instances create "${NAME}" \
   --project="${GCP_PROJECT}" \
   --zone="${GCP_ZONE}" \
-  --machine-type=n1-standard-32 \
+  --machine-type=n2-standard-32 \
   --local-ssd=device-name=local-ssd-0 \
+  --local-ssd=interface=NVME --local-ssd=interface=NVME --local-ssd=interface=NVME \
   --image=windows-server-2019-dc-for-containers-v20200714 \
   --image-project=windows-cloud \
-  --boot-disk-size=100GB
+  --boot-disk-size=200GB --boot-disk-type=pd-ssd
